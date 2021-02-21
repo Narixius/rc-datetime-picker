@@ -2,14 +2,14 @@
  * rc-datetime-picker v1.6.1
  * https://github.com/AllenWooooo/rc-datetime-picker
  *
- * (c) 2018 Allen Wu
+ * (c) 2021 Allen Wu
  * License: MIT
  */
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react'), require('classnames/bind'), require('blacklist'), require('moment'), require('react-slider'), require('react-dom')) :
-	typeof define === 'function' && define.amd ? define(['exports', 'react', 'classnames/bind', 'blacklist', 'moment', 'react-slider', 'react-dom'], factory) :
-	(factory((global['rc-datetime-picker'] = {}),global.React,global.classNames,global.blacklist,global.moment,global.ReactSlider,global.ReactDOM));
-}(this, (function (exports,React,classNames,blacklist,moment,ReactSlider,ReactDOM) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react'), require('classnames/bind'), require('blacklist'), require('moment'), require('@fortawesome/free-solid-svg-icons'), require('@fortawesome/react-fontawesome'), require('react-slider'), require('react-dom')) :
+	typeof define === 'function' && define.amd ? define(['exports', 'react', 'classnames/bind', 'blacklist', 'moment', '@fortawesome/free-solid-svg-icons', '@fortawesome/react-fontawesome', 'react-slider', 'react-dom'], factory) :
+	(factory((global['rc-datetime-picker'] = {}),global.React,global.classNames,global.blacklist,global.moment,global.freeSolidSvgIcons,global.reactFontawesome,global.ReactSlider,global.ReactDOM));
+}(this, (function (exports,React,classNames,blacklist,moment,freeSolidSvgIcons,reactFontawesome,ReactSlider,ReactDOM) { 'use strict';
 
 var React__default = 'default' in React ? React['default'] : React;
 classNames = classNames && classNames.hasOwnProperty('default') ? classNames['default'] : classNames;
@@ -212,7 +212,6 @@ var Day = function (_Component) {
             maxLimitedDate = void 0;
 
         if (selected) {
-
           if (rangeAt === 'start' && selected.end) {
             maxLimitedDate = selected.end.clone();
             minLimitedDate = maxLimitedDate.clone().subtract(limitValue, limitKey);
@@ -244,7 +243,8 @@ var Day = function (_Component) {
         {
           key: day,
           className: className,
-          onClick: _this.select.bind(_this, day, isSelected, isDisabled, isPrevMonth, isNextMonth) },
+          onClick: _this.select.bind(_this, day, isSelected, isDisabled, isPrevMonth, isNextMonth)
+        },
         day
       );
     };
@@ -289,18 +289,29 @@ var Day = function (_Component) {
           { className: 'calendar-nav' },
           React__default.createElement(
             'button',
-            { type: 'button', className: 'prev-month', onClick: this.changeMonth.bind(this, 'prev') },
-            React__default.createElement('i', { className: 'fa fa-angle-left' })
+            {
+              type: 'button',
+              className: 'prev-month',
+              onClick: this.changeMonth.bind(this, 'prev')
+            },
+            React__default.createElement(reactFontawesome.FontAwesomeIcon, { icon: freeSolidSvgIcons.faChevronLeft })
           ),
           React__default.createElement(
             'span',
-            { className: 'current-date', onClick: changePanel.bind(this, 'month', _moment) },
+            {
+              className: 'current-date',
+              onClick: changePanel.bind(this, 'month', _moment)
+            },
             _moment.format(dayFormat)
           ),
           React__default.createElement(
             'button',
-            { type: 'button', className: 'next-month', onClick: this.changeMonth.bind(this, 'next') },
-            React__default.createElement('i', { className: 'fa fa-angle-right' })
+            {
+              type: 'button',
+              className: 'next-month',
+              onClick: this.changeMonth.bind(this, 'next')
+            },
+            React__default.createElement(reactFontawesome.FontAwesomeIcon, { icon: freeSolidSvgIcons.faChevronRight })
           )
         ),
         React__default.createElement(
@@ -402,7 +413,6 @@ var Month = function (_Component) {
             maxLimitedDate = void 0;
 
         if (selected) {
-
           if (rangeAt === 'start' && selected.start && selected.end) {
             maxLimitedDate = selected.end.clone();
             minLimitedDate = maxLimitedDate.clone().subtract(limitValue, limitKey);
@@ -432,7 +442,8 @@ var Month = function (_Component) {
         {
           key: month,
           className: className,
-          onClick: _this.select.bind(_this, month, isDisabled) },
+          onClick: _this.select.bind(_this, month, isDisabled)
+        },
         months ? months[idx + row * 3] : month
       );
     };
@@ -470,18 +481,29 @@ var Month = function (_Component) {
           { className: 'calendar-nav' },
           React__default.createElement(
             'button',
-            { type: 'button', className: 'prev-month', onClick: this.changeYear.bind(this, 'prev') },
-            React__default.createElement('i', { className: 'fa fa-angle-left' })
+            {
+              type: 'button',
+              className: 'prev-month',
+              onClick: this.changeYear.bind(this, 'prev')
+            },
+            React__default.createElement(reactFontawesome.FontAwesomeIcon, { icon: freeSolidSvgIcons.faChevronLeft })
           ),
           React__default.createElement(
             'span',
-            { className: 'current-date', onClick: changePanel.bind(this, 'year', _moment) },
+            {
+              className: 'current-date',
+              onClick: changePanel.bind(this, 'year', _moment)
+            },
             _moment.format('YYYY')
           ),
           React__default.createElement(
             'button',
-            { type: 'button', className: 'next-month', onClick: this.changeYear.bind(this, 'next') },
-            React__default.createElement('i', { className: 'fa fa-angle-right' })
+            {
+              type: 'button',
+              className: 'next-month',
+              onClick: this.changeYear.bind(this, 'next')
+            },
+            React__default.createElement(reactFontawesome.FontAwesomeIcon, { icon: freeSolidSvgIcons.faChevronRight })
           )
         ),
         React__default.createElement(
@@ -571,7 +593,6 @@ var Year = function (_Component) {
             maxLimitedDate = void 0;
 
         if (selected) {
-
           if (rangeAt === 'start' && selected.start && selected.end) {
             maxLimitedDate = selected.end.clone();
             minLimitedDate = maxLimitedDate.clone().subtract(limitValue, limitKey);
@@ -600,7 +621,11 @@ var Year = function (_Component) {
 
       return React__default.createElement(
         'td',
-        { key: year, className: className, onClick: _this.select.bind(_this, year, isDisabled) },
+        {
+          key: year,
+          className: className,
+          onClick: _this.select.bind(_this, year, isDisabled)
+        },
         year
       );
     };
@@ -637,8 +662,12 @@ var Year = function (_Component) {
           { className: 'calendar-nav' },
           React__default.createElement(
             'button',
-            { type: 'button', className: 'prev-month', onClick: this.changePeriod.bind(this, 'prev') },
-            React__default.createElement('i', { className: 'fa fa-angle-left' })
+            {
+              type: 'button',
+              className: 'prev-month',
+              onClick: this.changePeriod.bind(this, 'prev')
+            },
+            React__default.createElement(reactFontawesome.FontAwesomeIcon, { icon: freeSolidSvgIcons.faChevronLeft })
           ),
           React__default.createElement(
             'span',
@@ -649,8 +678,12 @@ var Year = function (_Component) {
           ),
           React__default.createElement(
             'button',
-            { type: 'button', className: 'next-month', onClick: this.changePeriod.bind(this, 'next') },
-            React__default.createElement('i', { className: 'fa fa-angle-right' })
+            {
+              type: 'button',
+              className: 'next-month',
+              onClick: this.changePeriod.bind(this, 'next')
+            },
+            React__default.createElement(reactFontawesome.FontAwesomeIcon, { icon: freeSolidSvgIcons.faChevronRight })
           )
         ),
         React__default.createElement(
@@ -747,12 +780,13 @@ var Calendar = function (_Component) {
         React__default.createElement(
           'div',
           { className: 'calendar' },
-          React__default.createElement(Day, _extends({}, props, {
-            style: { display: isDayPanel ? 'block' : 'none' } })),
+          React__default.createElement(Day, _extends({}, props, { style: { display: isDayPanel ? 'block' : 'none' } })),
           React__default.createElement(Month, _extends({}, props, {
-            style: { display: isMonthPanel ? 'block' : 'none' } })),
+            style: { display: isMonthPanel ? 'block' : 'none' }
+          })),
           React__default.createElement(Year, _extends({}, props, {
-            style: { display: isYearPanel ? 'block' : 'none' } }))
+            style: { display: isYearPanel ? 'block' : 'none' }
+          }))
         )
       );
     }
@@ -890,13 +924,25 @@ var Time = function (_Component) {
               { className: 'slider-text' },
               'Hours:'
             ),
-            React__default.createElement(ReactSlider, { min: 0, max: 23, value: _moment.hour(), onChange: this.handleChange.bind(this, 'hours'), withBars: true }),
+            React__default.createElement(ReactSlider, {
+              min: 0,
+              max: 23,
+              value: _moment.hour(),
+              onChange: this.handleChange.bind(this, 'hours'),
+              withBars: true
+            }),
             React__default.createElement(
               'span',
               { className: 'slider-text' },
               'Minutes:'
             ),
-            React__default.createElement(ReactSlider, { min: 0, max: 59, value: _moment.minute(), onChange: this.handleChange.bind(this, 'minutes'), withBars: true })
+            React__default.createElement(ReactSlider, {
+              min: 0,
+              max: 59,
+              value: _moment.minute(),
+              onChange: this.handleChange.bind(this, 'minutes'),
+              withBars: true
+            })
           )
         )
       );
@@ -1002,7 +1048,8 @@ var Shortcuts = function (_Component) {
           className: className,
           key: key,
           type: 'button',
-          onClick: _this.handleClick.bind(_this, value, key === 'custom') },
+          onClick: _this.handleClick.bind(_this, value, key === 'custom')
+        },
         key === 'custom' ? customButtonText : key
       );
     }, _this._renderShortcuts = function () {
@@ -1027,7 +1074,6 @@ var Shortcuts = function (_Component) {
   createClass(Shortcuts, [{
     key: 'render',
     value: function render() {
-
       return React__default.createElement(
         'div',
         { className: 'shortcuts-bar' },
@@ -1081,28 +1127,47 @@ var Picker = function (_Component) {
 
       return React__default.createElement(
         'div',
-        { className: className, style: { display: isOpen ? 'block' : 'none' }, onClick: function onClick(evt) {
+        {
+          className: className,
+          style: { display: isOpen ? 'block' : 'none' },
+          onClick: function onClick(evt) {
             return evt.stopPropagation();
-          } },
+          }
+        },
         shortcuts ? React__default.createElement(Shortcuts, props) : undefined,
         splitPanel ? React__default.createElement(
           'div',
           { className: 'panel-nav' },
           React__default.createElement(
             'button',
-            { type: 'button', onClick: this.changePanel.bind(this, 'calendar'), className: isCalendarPanel ? 'active' : '' },
+            {
+              type: 'button',
+              onClick: this.changePanel.bind(this, 'calendar'),
+              className: isCalendarPanel ? 'active' : ''
+            },
             React__default.createElement('i', { className: 'fa fa-calendar-o' }),
             'Date'
           ),
           React__default.createElement(
             'button',
-            { type: 'button', onClick: this.changePanel.bind(this, 'time'), className: isTimePanel ? 'active' : '' },
+            {
+              type: 'button',
+              onClick: this.changePanel.bind(this, 'time'),
+              className: isTimePanel ? 'active' : ''
+            },
             React__default.createElement('i', { className: 'fa fa-clock-o' }),
             'Time'
           )
         ) : undefined,
-        showCalendarPicker ? React__default.createElement(Calendar, _extends({}, props, { isOpen: isOpen, style: { display: isCalendarPanel || !splitPanel ? 'block' : 'none' } })) : undefined,
-        showTimePicker ? React__default.createElement(Time, _extends({}, props, { style: { display: isTimePanel || !splitPanel ? 'block' : 'none' } })) : undefined
+        showCalendarPicker ? React__default.createElement(Calendar, _extends({}, props, {
+          isOpen: isOpen,
+          style: {
+            display: isCalendarPanel || !splitPanel ? 'block' : 'none'
+          }
+        })) : undefined,
+        showTimePicker ? React__default.createElement(Time, _extends({}, props, {
+          style: { display: isTimePanel || !splitPanel ? 'block' : 'none' }
+        })) : undefined
       );
     }
   }]);

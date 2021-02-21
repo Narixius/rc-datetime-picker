@@ -61,7 +61,7 @@ class Trigger extends Component {
 
   togglePicker = (isOpen) => {
     const {disabled} = this.props;
-    
+
     if (disabled) return;
 
     this.setState({
@@ -97,13 +97,13 @@ class Trigger extends Component {
   }
 
   _renderPicker = (isOpen) => {
-    const props = blacklist(this.props, 'className', 'appendToBody', 'children', 'onChange');  
-    
+    const props = blacklist(this.props, 'className', 'appendToBody', 'children', 'onChange');
+
     return (
-      <DatetimePicker 
+      <DatetimePicker
         {...props}
-        className="datetime-picker-popup" 
-        isOpen={isOpen} 
+        className="datetime-picker-popup"
+        isOpen={isOpen}
         onChange={this.handleChange} />
     );
   }

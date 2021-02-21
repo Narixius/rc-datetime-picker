@@ -29,6 +29,9 @@
   },
   "homepage": "https://github.com/AllenWooooo/rc-datetime-picker#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.34",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "blacklist": "^1.1.4",
     "classnames": "^2.2.5",
     "create-react-class": "^15.6.2",
@@ -48,6 +51,7 @@
     "eslint": "^4.16.0",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-react": "^7.5.1",
+    "fbjs": "^3.0.0",
     "jest-cli": "^22.1.4",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",

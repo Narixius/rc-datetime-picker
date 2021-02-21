@@ -29,28 +29,28 @@ class Range extends Component {
 
   handleShortcutChange = (moment, isCustom) => {
     const {onChange} = this.props;
-    
+
     if (isCustom) {
       this.setState({
         moment
       });
     } else {
-      onChange && onChange(moment);  
+      onChange && onChange(moment);
     }
   }
 
   onConfirm = () => {
     const {moment} = this.state;
     const {onChange} = this.props;
-    
+
     onChange && onChange(moment);
   }
-  
+
   render() {
     const {moment} = this.state;
     const {
-      format, 
-      showTimePicker = false, 
+      format,
+      showTimePicker = false,
       isOpen = true,
       shortcuts,
       confirmButtonText = CONFIRM_BUTTON_TEXT,

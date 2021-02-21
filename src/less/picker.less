@@ -1,3 +1,6 @@
+@date-picker-primary-color: #5cc4ef;
+@date-picker-secondary-color: #FF9A19;
+
 * {
   box-sizing: border-box;
 }
@@ -77,7 +80,7 @@
         }
 
         th {
-          color: #FF9A19;
+          color: @date-picker-secondary-color;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -127,17 +130,17 @@
             }
 
             &.now {
-              color: #5cc4ef;
+              color: @date-picker-primary-color;
               font-weight: 400;
             }
 
             &.selected {
-              background-color: #5cc4ef;
+              background-color: @date-picker-primary-color;
               color: #fff;
               font-weight: 400;
 
               &:hover {
-                background-color: darken(#5cc4ef, 2%);
+                background-color: darken(@date-picker-primary-color, 2%);
                 color: #fff;
               }
 
@@ -157,7 +160,7 @@
             }
 
             &.between {
-              background-color: lighten(#5cc4ef, 33%);
+              background-color: lighten(@date-picker-primary-color, 33%);
               border-radius: 0;
             }
           }
@@ -243,8 +246,8 @@
 
           &:focus,
           &:active {
-            background-color: #5cc4ef;
-            border-color: #5cc4ef;
+            background-color: @date-picker-primary-color;
+            border-color: @date-picker-primary-color;
           }
         }
       }

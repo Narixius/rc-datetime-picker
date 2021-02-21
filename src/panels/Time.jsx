@@ -1,24 +1,23 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ReactSlider from 'react-slider';
 import moment from 'moment';
-
 
 class Time extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      moment: this.getCurrentMoment(props)
+      moment: this.getCurrentMoment(props),
     };
   }
 
   componentWillReceiveProps(props) {
     this.setState({
-      moment: this.getCurrentMoment(props)
+      moment: this.getCurrentMoment(props),
     });
   }
 
   getCurrentMoment = (props) => {
-    const {range, rangeAt} = props;
+    const { range, rangeAt } = props;
     let result = props.moment;
 
     if (result) {
@@ -30,10 +29,10 @@ class Time extends Component {
     }
 
     return result;
-  }
+  };
 
   handleChange = (type, value) => {
-    const {onChange, range, rangeAt} = this.props;
+    const { onChange, range, rangeAt } = this.props;
     const _moment = this.state.moment.clone();
     let selected = this.props.moment;
 
@@ -48,14 +47,14 @@ class Time extends Component {
     }
 
     this.setState({
-      moment: _moment
+      moment: _moment,
     });
     onChange && onChange(selected);
-  }
+  };
 
   render() {
     const _moment = this.state.moment;
-    const {style} = this.props;
+    const { style } = this.props;
 
     return (
       <div style={style}>
@@ -67,15 +66,26 @@ class Time extends Component {
           </div>
           <div className="sliders">
             <span className="slider-text">Hours:</span>
-            <ReactSlider min={0} max={23} value={_moment.hour()} onChange={this.handleChange.bind(this, 'hours')} withBars />
+            <ReactSlider
+              min={0}
+              max={23}
+              value={_moment.hour()}
+              onChange={this.handleChange.bind(this, 'hours')}
+              withBars
+            />
             <span className="slider-text">Minutes:</span>
-            <ReactSlider min={0} max={59} value={_moment.minute()} onChange={this.handleChange.bind(this, 'minutes')} withBars />
+            <ReactSlider
+              min={0}
+              max={59}
+              value={_moment.minute()}
+              onChange={this.handleChange.bind(this, 'minutes')}
+              withBars
+            />
           </div>
         </div>
       </div>
     );
   }
 }
-
 
 export default Time;
