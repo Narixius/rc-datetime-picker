@@ -1,5 +1,5 @@
-@date-picker-primary-color: #5cc4ef;
-@date-picker-secondary-color: #FF9A19;
+$date-picker-primary-color: #5cc4ef !default;
+$date-picker-secondary-color: #FF9A19 !default;
 
 * {
   box-sizing: border-box;
@@ -80,7 +80,7 @@
         }
 
         th {
-          color: @date-picker-secondary-color;
+          color: $date-picker-secondary-color;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -130,17 +130,17 @@
             }
 
             &.now {
-              color: @date-picker-primary-color;
+              color: $date-picker-primary-color;
               font-weight: 400;
             }
 
             &.selected {
-              background-color: @date-picker-primary-color;
+              background-color: $date-picker-primary-color;
               color: #fff;
               font-weight: 400;
 
               &:hover {
-                background-color: darken(@date-picker-primary-color, 2%);
+                background-color: darken($date-picker-primary-color, 2%);
                 color: #fff;
               }
 
@@ -160,7 +160,7 @@
             }
 
             &.between {
-              background-color: lighten(@date-picker-primary-color, 33%);
+              background-color: lighten($date-picker-primary-color, 33%);
               border-radius: 0;
             }
           }
@@ -169,16 +169,16 @@
     }
 
     .calendar-days table tbody tr td {
-      width: 100% / 7;
+      width: calc(100% / 7);
     }
 
     .calendar-months table tbody tr td {
-      width: 100% / 3;
+      width: calc(100% / 3);
       height: 40px;
     }
 
     .calendar-years table tbody tr td {
-      width: 100% / 4;
+      width: calc(100% / 4);
       height: 60px;
     }
 
@@ -246,8 +246,8 @@
 
           &:focus,
           &:active {
-            background-color: @date-picker-primary-color;
-            border-color: @date-picker-primary-color;
+            background-color: $date-picker-primary-color;
+            border-color: $date-picker-primary-color;
           }
         }
       }

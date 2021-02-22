@@ -1,6 +1,7 @@
 
-@import "../src/less/picker.less";
-
+$date-picker-primary-color: blue;
+$date-picker-secondary-color: orange;
+@import "../src/scss/picker.scss";
 
 body {
   margin: 0;

@@ -14,7 +14,7 @@
     "dev": "webpack-dev-server --hot --inline --progress --colors --content-base ./docs --env=development",
     "build-css": "lessc --clean-css src/less/picker.less dist/picker.min.css && lessc src/less/picker.less dist/picker.css",
     "build-js": "node build/build.js",
-    "build": "npm run build-css && npm run build-js",
+    "build": "npm run build-js",
     "test": "jest",
     "release": "bash build/release.sh"
   },
@@ -65,6 +65,8 @@
     "rollup": "^0.54.1",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-replace": "^2.0.0",
+    "sass": "^1.32.8",
+    "sass-loader": "7.3.1",
     "style-loader": "^0.19.1",
     "uglify-js": "^3.3.8",
     "webpack": "^3.10.0",
