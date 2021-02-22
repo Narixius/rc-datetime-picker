@@ -6,11 +6,11 @@ const env = argv.env;
 const config = {
   devtool: 'eval',
   entry: {
-    app: ['./docs/app.jsx']
+    app: ['./docs/app.jsx'],
   },
   output: {
     path: path.resolve(__dirname, './docs'),
-    filename: 'app.js'
+    filename: 'app.js',
   },
   module: {
     rules: [
@@ -18,31 +18,28 @@ const config = {
         test: /\.jsx$/,
         exclude: /node_modules/,
         enforce: 'pre',
-        use: [
-          'eslint-loader'
-        ]
+        use: ['eslint-loader'],
       },
       {
         test: /\.(jsx|js)$/,
         exclude: /node_modules/,
-        use: [
-          'babel-loader'
-        ]
+        use: ['babel-loader'],
       },
       {
         test: /\.(less|css)$/,
         exclude: /node_modules/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'less-loader'
-        ]
-      }
-    ]
+        use: ['style-loader', 'css-loader', 'less-loader'],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        exclude: /node_modules/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+    ],
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json']
-  }
+    extensions: ['.js', '.jsx', '.json'],
+  },
 };
 
 if (env === 'development') {

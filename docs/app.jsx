@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import {render} from 'react-dom';
 import moment from 'moment';
 
-import {DatetimePicker, DatetimePickerTrigger} from '../src';
+import {DatetimePicker, DatetimePickerTrigger} from '../dist/rc-datetime-picker.min';
 
-import './app.less';
+import './app.scss';
 
 
 class InlinePicker extends Component {

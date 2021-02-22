@@ -1,6 +1,6 @@
 var fs = require('fs');
-var uglify = require('uglify-js');
 var rollup = require('rollup');
+var uglify = require('uglify-js');
 var babel = require('rollup-plugin-babel');
 var replace = require('rollup-plugin-replace');
 var version = process.env.VERSION || require('../package.json').version;
@@ -22,8 +22,8 @@ var babelOptions = {
     'stage-0',
     'react'
   ],
-  "plugins": [
-    "external-helpers"
+  'plugins': [
+    'external-helpers'
   ]
 };
 
@@ -71,23 +71,29 @@ function buildUmdDev() {
 
 function buildUmdProd() {
   // Standalone production build
-  return rollup.rollup({
-    entry: 'src/Picker.jsx',
-    plugins: [
-      babel(babelOptions)
-    ]
-  }).then(function (bundle) {
-    bundle.generate({
-      format: 'umd',
-      name: 'rc-datetime-picker'
-    }).then(({ code }) => {
-      var minified = banner + '\n' + uglify.minify(code, {
-        fromString: true,
-        compress: true
-      }).code;
-      return write('dist/rc-datetime-picker.min.js', minified);
+  return rollup
+    .rollup({
+      entry: 'src/index.js',
+      plugins: [babel(babelOptions)],
+    })
+    .then(function (bundle) {
+      bundle
+        .generate({
+          format: 'umd',
+          name: 'rc-datetime-picker',
+        })
+        .then(({ code }) => {
+          var minified =
+            banner +
+            '\n' +
+            uglify.minify(code, {
+            //   fromString: true,
+              compress: true,
+            }).code;
+          return write('dist/rc-datetime-picker.min.js', minified);
+        });
     });
-  });
+
 }
 
 function write(dest, code) {

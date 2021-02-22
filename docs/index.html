@@ -5,7 +5,6 @@
   <title>React Datetime Picker</title>
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,300,500&amp;subset=latin,cyrillic" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css">
-  <script src="https://use.fontawesome.com/7fdb149223.js"></script>
 </head>
 <body>
   <h1 class="title">React Datetime Picker
@@ -91,7 +90,7 @@ class App extends Component {
 
     return (
       &lt;DatetimePickerTrigger
-        shortcuts={shortcuts} 
+        shortcuts={shortcuts}
         moment={this.state.moment}
         onChange={this.handleChange}&gt
         &lt;input type="text" value={this.state.moment.format('YYYY-MM-DD HH:mm')} readOnly /&gt;
